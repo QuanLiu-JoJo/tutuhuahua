@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>mockFromTable</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="open">
+        <span>开启涂鸦：</span>
+        <input class="switch switch-anim" type="checkbox" />
+        <a href="#" class="myButton">清除涂鸦</a>
+      </div>
+      <div class="color-group">
+        <ul>
+          <li
+            id="white"
+            class="color-item"
+            style="background-color: white"
+          ></li>
+          <li
+            id="black"
+            class="color-item active"
+            style="background-color: black"
+          ></li>
+          <li
+            id="red"
+            class="color-item"
+            style="background-color: #ff3333"
+          ></li>
+          <li
+            id="blue"
+            class="color-item"
+            style="background-color: #0066ff"
+          ></li>
+        </ul>
+        <ul>
+          <li
+            id="yellow"
+            class="color-item"
+            style="background-color: #ffff33"
+          ></li>
+          <li
+            id="green"
+            class="color-item"
+            style="background-color: #33cc66"
+          ></li>
+          <li
+            id="skyblue"
+            class="color-item"
+            style="background-color: skyblue"
+          ></li>
+          <li id="gray" class="color-item" style="background-color: gray"></li>
+        </ul>
+      </div>
+      <div class="size-range-wrap drawWidth">
+        <span>涂鸦粗细：</span>
+        <input
+          type="range"
+          id="range"
+          min="1"
+          max="30"
+          value="5"
+          title="调整笔刷粗细"
+        />
+      </div>
+      <div class="size-range-wrap drawOpacity">
+        <span>荧光笔法：</span>
+        <input
+          type="range"
+          id="range"
+          min="1"
+          max="10"
+          value="1"
+          title="调整透明度"
+        />
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
