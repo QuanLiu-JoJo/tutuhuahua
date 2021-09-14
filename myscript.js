@@ -15,9 +15,17 @@ let pageWidth = document.body.clientWidth;
 let pageHeight = document.body.clientHeight;
 canvas.width = pageWidth;
 canvas.height = pageHeight;
+
 let canvasOpacity = 0.2;
 let penColor = "black";
 let drawWidth = 1;
+chrome.runtime.sendMessage({ info: "initPen", value: 0 }, function (response) {
+  let res = JSON.parse(response);
+  // console.log(res);
+  canvasOpacity = res.canvasOpacity / 10;
+  penColor = res.penColor;
+  drawWidth = res.drawWidth;
+});
 
 // 用于保存路径用于半透明线路绘制
 let global_canvas = document.createElement("canvas");
@@ -30,6 +38,7 @@ function readHistory() {
   var img = new Image();
   img.onload = function () {
     ctx.drawImage(img, 0, 0);
+    global_ctx.drawImage(canvas, 0, 0);
   };
   img.src = localStorage.getItem(`canvas_content_for_${window.location.href}`);
   canvas.style.visibility = "visible";
